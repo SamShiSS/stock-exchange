@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction Confirmation
+{% endblock %}
+
+{% block main %}
+    <table class="table table-sm">
+        <tr>
+            <th colspan=7>Transaction Summary</th>
+        </tr>
+        <tr>
+            <th>Transaction Number</th>
+            <th>Type</th>
+            <th>Stock Name</th>
+            <th>Price Per Share</th>
+            <th>Number of Shares</th>
+            <th>Total</th>
+            <th>Cash Remaining</th>
+        </tr>
+        <tr>
+            <td>{{transid}}</td>
+            <td>{{transtype}}</td>
+            <td>{{stockname}}</td>
+            <td>{{price}}</td>
+            <td>{{shares}}</td>
+            <td>{{total}}</td>
+            <td>{{cash}}</td>
+        </tr>
+{% endblock %}

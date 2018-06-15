@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-sm">
+        <tr>
+            <th colspan=7>Transaction History</th>
+        </tr>
+        <tr>
+            <th>Transaction Number</th>
+            <th>Date and Time</th>
+            <th>Type</th>
+            <th>Stock Name</th>
+            <th>Price at Transaction</th>
+            <th>Number of Shares Dealt</th>
+            <th>Total Cash Flow</th>
+        </tr>
+        {% if not transactions|length %}
+            <tr>
+                <td colspan=7>You don't have any transaction history</td>
+            </tr>
+        {% else %}
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction["transaction number"] }}</td>
+                    <td>{{ transaction["time"] }}</td>
+                    <td>{{ transaction["type"] }}</td>
+                    <td>{{ transaction["stockname"] }}</td>
+                    <td>{{ transaction["price"] }}</td>
+                    <td>{{ transaction["shares"] }}</td>
+                    <td>{{ transaction["total"] }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+{% endblock %}

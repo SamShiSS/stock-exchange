@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Password
+{% endblock %}
+
+{% block main %}
+    <form action="/changepw" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="oldpassword" placeholder="Old Password" type="password"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="newpassword" placeholder="New Password" type="password"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm New Password" type="password"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+    <br>
+    <div align="center" class="note">Password Requirements:
+        <ul align="left">
+            <li>Be at least 8 characters in length</li>
+            <li>Contain at least one uppercase letter</li>
+            <li> Contain at least one lowercase letter</li>
+            <li>Contain at least one number (0–9)</li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Personal Dashboard
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome back, {{ username }}!</h1>
+    <table class="table table-sm">
+        <h5>Your Current Cash Balance is {{ cash }}</h5>
+        <h5>Your Current Grand Total {{ grandtotal }}</h5>
+    <table class="table table-sm">
+        <tr>
+            <th colspan=4>Your Current Stock Summary</th>
+        </tr>
+        <tr>
+            <th>Stock Name</th>
+            <th>Current Price Per Share</th>
+            <th>Number of Shares Owned</th>
+            <th>Total Value</th>
+        </tr>
+        {% if not stockshares|length %}
+            <tr>
+                <td colspan=4>You Currently Do Not Own Any Stock</td>
+            </tr>
+        {% else %}
+            {% for stock in stockshares %}
+            <tr>
+                <td>{{stock['stockname']}}</td>
+                <td>{{stock['price']}}</td>
+                <td>{{stock['sum(shares)']}}</td>
+                <td>{{stock['total']}}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+{% endblock %}
